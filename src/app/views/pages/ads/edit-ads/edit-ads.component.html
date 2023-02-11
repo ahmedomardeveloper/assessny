@@ -1,0 +1,79 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Ads</li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" method="post" [formGroup]="testForm">
+
+                    <div class="mb-3">
+                        <label for="adName" class="form-label">Ad Title</label>
+                        <input type="text" class="form-control" [value]="getsingleAd.adsName" id="adName"
+                            formControlName="AdsName" autocomplete="off" placeholder="Ad Name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adscontent" class="form-label">Ad Content</label>
+                        <textarea placeholder="Content will be here" class="form-control" id="adscontent"
+                            formControlName="Content" cols="30" rows="10" [value]="getsingleAd.content"></textarea>
+                    </div>
+
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                data-bs-target="#link-tab-pane" type="button" role="tab" aria-controls="home-tab-pane"
+                                aria-selected="true">Link</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                data-bs-target="#youtube-tab-pane" type="button" role="tab"
+                                aria-controls="profile-tab-pane" aria-selected="false">Youtube Link</button>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="link-tab-pane" role="tabpanel"
+                            aria-labelledby="home-tab" tabindex="0">
+                            <div class="my-3">
+                                <input type="text" class="form-control" id="link" formControlName="Link"
+                                    autocomplete="off" placeholder="Ad Link">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="youtube-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                            tabindex="0">
+                            <div class="my-3">
+                                <input type="text" class="form-control" formControlName="YoutubeLink" autocomplete="off"
+                                    placeholder="Ad Youtube Link">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+                        <label for="adName" class="form-label">Ad File</label>
+                        <input type="file" class="form-control" id="filename" autocomplete="off" placeholder="Ad Name">
+                    </div>
+
+
+
+                    <div class="my-4">
+                        <label for="isForTeacher" class="form-label">For: </label>
+                        <select formControlName="IsForTeacher" type="text" class="form-control" id="isForTeacher">
+                            <option ngValue="" selected>Both</option>
+                            <option ngValue="true" [selected]="getsingleAd.isForTeacher">Teachers</option>
+                            <option ngValue="false">Students</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

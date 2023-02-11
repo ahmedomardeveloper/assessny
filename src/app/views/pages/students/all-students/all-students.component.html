@@ -1,0 +1,30 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Students</li>
+    </ol>
+</nav>
+
+<div class="table-responsive text-center">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date Of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of allStudents;let i=index">
+                <td>{{student.studentId}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.phoneNumber}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.dataBirth | date : 'longDate'}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

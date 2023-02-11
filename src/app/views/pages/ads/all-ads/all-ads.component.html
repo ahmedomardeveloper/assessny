@@ -1,0 +1,63 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Advertisements</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">All Advertisements For Teachers and Students</h4>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="my-5">
+                    <label for="forwhom" class="form-label">For Whom</label>
+                    <select class="form-select form-select-lg" (change)="filterAds($event)" id="forwhom">
+                        <option [value]="null" selected>Both</option>
+                        <option [value]="true">Teachers</option>
+                        <option [value]="false">Students</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive" *ngIf="!loading">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ad Name</th>
+                                <th>Content</th>
+                                <th>Actions</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ad of allAdsData">
+                                <td>{{ad.adsId}}</td>
+                                <td><a [routerLink]="[ad.adsId]">{{ad.adsName}}</a></td>
+                                <td>{{ad.content | slice:0:20}} ...</td>
+                                <td>
+                                    <a class="btn btn-info me-4" [routerLink]="[ad.adsId]">Show Details</a>
+                                    <a class="btn btn-success me-4" [routerLink]="['../edit-ad/',ad.adsId]">Edit Ad</a>
+                                    <button class="btn btn-danger" (click)="deleteAds(ad.adsId)">Delete Ad</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <app-spinner class="text-center w-100 d-block" *ngIf="loading"></app-spinner>
+
+            </div>
+        </div>
+    </div>
+</div>

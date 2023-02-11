@@ -1,0 +1,30 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Teachers</li>
+    </ol>
+</nav>
+
+<div class="table-responsive text-center">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date Of Birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let teacher of allTeachers;let i=index">
+                <td>{{i + 1}}</td>
+                <td>{{teacher.teacherName}}</td>
+                <td>{{teacher.phoneNumber}}</td>
+                <td>{{teacher.email}}</td>
+                <td>{{teacher.dataBirth | date : 'longDate'}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

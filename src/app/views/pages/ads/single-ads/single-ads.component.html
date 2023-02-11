@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" *ngFor="let ad of singleAd">
+            <h2 class="text-center fs-1 mb-4 text-primary">{{ad.adsName}}</h2>
+            <p class="text-center fs-4 mb-4 text-black lh-lg">{{ad.content}}</p>
+            <!-- <p class="text-center fs-4 mb-4 text-black">{{ad.link}}</p> -->
+            <div *ngIf="ad.link">
+                <!-- {{ad.link}} -->
+                <a class="btn btn-primary px-4 d-block w-25 m-auto text-center" href="http://{{ad.link}}"
+                    target="_blank">Go to Ad
+
+                </a>
+            </div>
+            <h5 class="my-5 text-center text-muted "> This Ad Is For {{forWhom}}</h5>
+
+        </div>
+    </div>
+</div>
