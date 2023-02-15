@@ -1,0 +1,42 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Ads</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" method="post" [formGroup]="announcementForm" (ngSubmit)="addAnnouncement()">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Announcement Title</label>
+                        <input type="text" class="form-control" id="title" formControlName="title" autocomplete="off"
+                            placeholder="Announcement Title">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Announcement Content</label>
+                        <textarea placeholder="Content will be here" class="form-control" id="content"
+                            formControlName="content" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="url" class="form-label">Announcement Link</label>
+                        <input type="text" placeholder="Link" class="form-control" id="url" formControlName="url">
+                    </div>
+
+                    <div class="my-4">
+                        <label for="isForTeacher" class="form-label">For: </label>
+                        <select formControlName="isForTeacher" type="text" class="form-control" id="isForTeacher">
+                            <option ngValue="" selected>Both</option>
+                            <option ngValue="true">Teachers</option>
+                            <option ngValue="false">Students</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

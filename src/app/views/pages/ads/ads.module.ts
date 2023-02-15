@@ -62,6 +62,6 @@ const routes: Routes = [
     FormsModule,
 
 
-  ]
+  ],
 })
 export class AdsModule { }

@@ -1,0 +1,65 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Announcements</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">All Announcements For Teachers and Students</h4>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="table-responsive" *ngIf="!loading">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Announcement Title</th>
+                                <th>Content</th>
+                                <th>Date</th>
+                                <th>For</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let announcement of allAnnouncementsData">
+                                <td>{{announcement.announcementId}}</td>
+                                <td>{{announcement.title}}</td>
+                                <td>{{announcement.content | slice:0:30}}</td>
+                                <td>{{announcement.date |date:'medium'}}</td>
+                                <ng-container [ngSwitch]="announcement.isForTeacher">
+                                    <td *ngSwitchCase=true>Teachers only</td>
+                                    <td *ngSwitchCase=false>Students only</td>
+                                    <td *ngSwitchCase=null>both of them</td>
+                                </ng-container>
+                                <!-- <td>
+                                    <a class="btn btn-info me-4" [routerLink]="[announcement.announcementId]">Show
+                                        Details</a>
+                                    <a class="btn btn-success me-4"
+                                        [routerLink]="['../edit-ad/',announcement.announcementId]">Edit Ad</a>
+                                    <button class="btn btn-danger"
+                                        (click)="deleteAds(announcement.announcementId)">Delete Ad</button>
+                                </td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <app-spinner-announce class="text-center w-100 d-block" *ngIf="loading"></app-spinner-announce>
+
+            </div>
+        </div>
+    </div>
+</div>

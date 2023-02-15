@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: () => import('./views/pages/students/students.module').then(m => m.StudentsModule)
       },
       {
+        path: 'announcements',
+        loadChildren: () => import('./views/pages/announcements/announcements.module').then(m => m.AnnouncementsModule)
+      },
+      {
         path: 'ui-components',
         loadChildren: () => import('./views/pages/ui-components/ui-components.module').then(m => m.UiComponentsModule)
       },

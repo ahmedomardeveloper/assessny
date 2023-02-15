@@ -24,7 +24,6 @@ export class AddAdsComponent implements OnInit {
     formData.append('File', this.adsForm.get('File')?.value);
 
     if (this.adsForm.get('IsForTeacher')?.value === "") {
-
       this.adsForm.get('IsForTeacher')?.setValue("")
     }
     else if (this.adsForm.get('IsForTeacher')?.value === 'false')

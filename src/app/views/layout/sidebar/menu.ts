@@ -45,7 +45,21 @@ export const MENU: MenuItem[] = [
     icon: 'home',
     link: '/students'
   }
-
+  ,
+  {
+    label: 'Announcements',
+    isTitle: true
+  },
+  {
+    label: 'All announcements',
+    icon: 'home',
+    link: '/announcements'
+  },
+  {
+    label: 'Add announcement',
+    icon: 'home',
+    link: '/announcements/add-announcement'
+  },
 
   // {
   //   label: 'Web Apps',
